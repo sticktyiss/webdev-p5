@@ -4,6 +4,7 @@ import {selectDisplay} from '../redux/slices/displayCountrySlice'
 
 const Overview = () => {
   let currentDisplay = useSelector(selectDisplay)
+  console.log(currentDisplay)
   return (
   <div className="stack">
     <h1>{currentDisplay.name.official}</h1>
@@ -13,7 +14,7 @@ const Overview = () => {
       <tr>
         <td>Borders: </td>
         <td>
-          {currentDisplay.borders ? currentDisplay.borders.name((e,i,arr) => {
+          {currentDisplay.borders ? currentDisplay.borders.map((e,i,arr) => {
             if (i+1 === arr .length) {
               return `${e}`;
             } else {
